@@ -74,11 +74,12 @@ void disableOta() {
     15 - navigation params
     16 - stop engine
 */
-void sendNavigationParams(uint8_t x, uint8_t y) {
+void sendNavigationParams(uint8_t x, uint8_t y) { 
     MessageData messageData;
     messageData.operation_type = 15;
     messageData.joystickX = x;
     messageData.joystickY = y;
+    sendMessage(messageData);
 }
 
 /*

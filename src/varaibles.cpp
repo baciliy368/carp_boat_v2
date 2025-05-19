@@ -28,3 +28,5 @@ double INTERNAL_BAT_VALUE = 0.0;
 bool INTERNAL_WIFI_VALUE = false;
 
 uint8_t LAST_UPDATE_DURATION;
+
+

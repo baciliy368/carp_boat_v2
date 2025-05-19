@@ -9,6 +9,8 @@ void checkButton() {
     }
 }
 
+
+
 //TODO: remove after debug
 void checkJoystick() {
     checkButton();
@@ -20,6 +22,7 @@ void checkJoystick() {
         Serial.print(joystickX);
         Serial.print(" || ");
         Serial.println(joystickY);
+        sendNavigationParams(joystickX, joystickY);
     }
 }
 

@@ -83,5 +83,4 @@ extern const char* SETTINGS_MENU_ARRAY[];
 #define SCREEN_UPDATE_INTERVAL 300
 
 extern const char MENU_POINTER;
-
 #endif // __VARIABLES_H__

@@ -2,6 +2,7 @@
 #include <joystick_manager.h>
 #include <framework/encoder.h>
 #include <ui/interface_setups.h>
+#include <framework/ota.h>
 
 unsigned long lastScreenUpdate = 0;
 
@@ -11,12 +12,18 @@ void setup()
     prepareJoystick();
     prepareOled();
     prepareEncoder();
+    startWiFi();
+    otaLogic();
 }
 
 void processUsability() {
     if (millis() - lastScreenUpdate >= SCREEN_UPDATE_INTERVAL) {
         lastScreenUpdate = millis();
         updateScreen();
+        if(WiFi.status() == WL_CONNECTED) {
+        Serial.println("waiting");
+        ArduinoOTA.handle();
+  }
       }
     
 }
