@@ -16,14 +16,12 @@
 #define ENC_B_PIN 25
 #define ENC_BUTTON_PIN 32
 
-
-
-#define OLED_RESET -1        
-#define SCREEN_ADDRESS 0x3C 
-#define SCREEN_WIDTH 128 
-#define SCREEN_HEIGHT 64 
-#define SCREEN_TOP_COLOR_HEIGHT 16 
-#define SCREEN_BOTTOM_COLOR_HEIGHT 48 
+#define OLED_RESET -1
+#define SCREEN_ADDRESS 0x3C
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+#define SCREEN_TOP_COLOR_HEIGHT 16
+#define SCREEN_BOTTOM_COLOR_HEIGHT 48
 #define MENU_ITEMS_ON_SCREEN_DISTANCE 12
 
 #define NUMBER_OF_ROWS_ON_SCREEN 5
@@ -36,39 +34,36 @@ extern bool INTERNAL_WIFI_VALUE;
 
 extern uint8_t LAST_UPDATE_DURATION;
 
+struct MessageData
+{
+  float latitude;        // 4 байта
+  float longitude;       // 4 байта
+  float battery_voltage; // 4 байта
 
+  uint8_t operation_type; // 1 байт
+  uint8_t wifi;           // 1 байт
+  uint8_t maxSpeed;       // 1 байт
+  uint8_t joystickX;      // 1 байт
 
-struct MessageData {
-    uint8_t operation_type;           // 1 байт — тип сообщения (0–100)
-    uint8_t battery;        // 1 байт — уровень заряда (0–100)
-    uint8_t wifi;
+  uint8_t joystickY;  // 1 байт
+  uint8_t reserved1;  // 1 байт
+  uint16_t reserved2; // 2 байта (выравнивание)
 
-    int32_t latitude;       // 4 байта — широта (например, *1e7)
-    int32_t longitude;      // 4 байта — долгота (например, *1e7)
-    uint8_t maxSpeed;
-
-    uint8_t joystickX;      // 2 байта — ось X (-32768..32767)
-    uint8_t joystickY;      // 2 байта — ось Y (-32768..32767)
-  
-    int32_t extraData;      // 4 байта — произвольные данные
-  
-    uint8_t reserved[12];   // 13 байт — под будущее (доп. флаги, crc, debug, и т.д.)
-  };
-
+  uint8_t reserved[16]; // 16 байт под расширение, crc и т.д.
+};
 
 extern MessageData currentBoatInfo;
 
-extern const char* MAIN_MENU_ARRAY[];
+extern const char *MAIN_MENU_ARRAY[];
 #define BOAT_CONTROL 0
 #define SETTINGS 1
 
-extern const char* BOAT_CONTROL_MENU_ARRAY[];
+extern const char *BOAT_CONTROL_MENU_ARRAY[];
 #define MAIN_MENU 0
 #define TELEMENTRY 1
 #define SETTINGS_BOAT_CONTROL 2
 
-
-extern const char* SETTINGS_MENU_ARRAY[];
+extern const char *SETTINGS_MENU_ARRAY[];
 #define OTA_ENABLE 1
 #define OTA_DISABLE 2
 
@@ -77,8 +72,6 @@ extern const char* SETTINGS_MENU_ARRAY[];
 #define BOAT_TELEMETRY_MENU_INDEX 3
 #define BOAT_SETTINGS_MENU_INDEX 4
 #define SETTINGS_MENU_INDEX 8
-
-
 
 #define SCREEN_UPDATE_INTERVAL 300
 

@@ -16,16 +16,18 @@ void setup()
     otaLogic();
 }
 
-void processUsability() {
-    if (millis() - lastScreenUpdate >= SCREEN_UPDATE_INTERVAL) {
+void processUsability()
+{
+    if (millis() - lastScreenUpdate >= SCREEN_UPDATE_INTERVAL)
+    {
         lastScreenUpdate = millis();
         updateScreen();
-        if(WiFi.status() == WL_CONNECTED) {
-        Serial.println("waiting");
-        ArduinoOTA.handle();
-  }
-      }
-    
+        if (WiFi.status() == WL_CONNECTED)
+        {
+            Serial.println("waiting");
+            ArduinoOTA.handle();
+        }
+    }
 }
 
 void loop()

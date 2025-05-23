@@ -6,7 +6,7 @@ void addBatInfo()
     display.print("P:");
     display.print(INTERNAL_BAT_VALUE);
     display.print(" | ");
-    display.print(currentBoatInfo.battery);
+    display.print(currentBoatInfo.battery_voltage);
 }
 
 void addWifiStatusInfo()

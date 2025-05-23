@@ -3,12 +3,13 @@
 #include <signal_manager.h>
 
 /*
+    5  - boat info 2 seconds
+
     15 - navigation params
     16 - stop engine
-    
-    25 - ota enable
-    26 - ota disable
-    
+
+    25 - ota switch
+
     35 - save current position
     36 - delete position by id
     37 - clear positions
@@ -21,15 +22,18 @@
     48 - slow release trume
 */
 
-void saveIncomingBoatInfo(MessageData incomingMessageData) {
+void saveIncomingBoatInfo(MessageData incomingMessageData)
+{
     currentBoatInfo = incomingMessageData;
 }
 
-void sendMessageData(MessageData messageData) {
+void sendMessageData(MessageData messageData)
+{
     sendMessage(messageData);
 }
 
-void simpleOperation (uint8_t value) {
+void simpleOperation(uint8_t value)
+{
     MessageData messageData;
     messageData.operation_type = value;
     sendMessageData(messageData);
@@ -41,40 +45,48 @@ void simpleOperation (uint8_t value) {
     47 - release trume
     48 - slow release trume
 */
-void dropTrume () {
+void dropTrume()
+{
     simpleOperation(45);
 }
 
-void rollbackTrume () {
+void rollbackTrume()
+{
     simpleOperation(46);
 }
 
-void releaseTrume () {
+void releaseTrume()
+{
     simpleOperation(47);
 }
 
-void slowReleaseTrume () {
+void slowReleaseTrume()
+{
     simpleOperation(48);
 }
 
-
 /*
-    25 - ota enable
-    26 - ota disable
+    5 - boat info 2 seconds
 */
-void enableOta() {
-    simpleOperation(25);
+void requestBoatInfo()
+{
+    simpleOperation(5);
 }
 
-void disableOta() {
-    simpleOperation(26);
+/*
+    25 - ota switch
+*/
+void switchWiFi()
+{
+    simpleOperation(25);
 }
 
 /*
     15 - navigation params
     16 - stop engine
 */
-void sendNavigationParams(uint8_t x, uint8_t y) { 
+void sendNavigationParams(uint8_t x, uint8_t y)
+{
     MessageData messageData;
     messageData.operation_type = 15;
     messageData.joystickX = x;
@@ -86,6 +98,7 @@ void sendNavigationParams(uint8_t x, uint8_t y) {
     15 - navigation params
     16 - stop engine
 */
-void sendStop() {
+void sendStop()
+{
     simpleOperation(16);
 }

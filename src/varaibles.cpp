@@ -16,10 +16,7 @@ const char *SETTINGS_MENU_ARRAY[] = {
     "OTA enable",
     "OTA disable"};
 
-
-
 const char MENU_POINTER = '<';
-
 
 uint8_t ACTIVE_MENU_VIEW = 0;
 uint8_t ACTIVE_MENU_POSITION = 0;
@@ -28,5 +25,3 @@ double INTERNAL_BAT_VALUE = 0.0;
 bool INTERNAL_WIFI_VALUE = false;
 
 uint8_t LAST_UPDATE_DURATION;
-
-
