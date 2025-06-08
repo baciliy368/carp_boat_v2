@@ -13,3 +13,4 @@ extern bool radioNumber;
 
 void sendMessage(MessageData messageData);
 MessageData waitResponse();
+void prepareRfn();

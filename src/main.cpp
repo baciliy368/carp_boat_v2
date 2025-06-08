@@ -9,11 +9,13 @@ unsigned long lastScreenUpdate = 0;
 void setup()
 {
     Serial.begin(9600);
+    prepareRfn();
     prepareJoystick();
     prepareOled();
     prepareEncoder();
     startWiFi();
     otaLogic();
+    disableWifi();
 }
 
 void processUsability()
@@ -24,8 +26,8 @@ void processUsability()
         updateScreen();
         if (WiFi.status() == WL_CONNECTED)
         {
-            Serial.println("waiting");
             ArduinoOTA.handle();
+            
         }
     }
 }

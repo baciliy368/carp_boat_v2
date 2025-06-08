@@ -5,16 +5,20 @@ MessageData currentBoatInfo;
 const char *MAIN_MENU_ARRAY[] = {
     "BOAT CONTROL",
     "SETTINGS"};
+const size_t MAIN_MENU_ARRAY_SIZE = sizeof(MAIN_MENU_ARRAY) / sizeof(MAIN_MENU_ARRAY[0]);
 
 const char *BOAT_CONTROL_MENU_ARRAY[] = {
     "MAIN MENU",
-    "TELEMETRY",
-    "SETTINGS"};
+    "TELEMETRYYYYY",
+    "SETTINGS",
+    "GET BOAT  INFO"};
+const size_t BOAT_CONTROL_MENU_ARRAY_SIZE = sizeof(BOAT_CONTROL_MENU_ARRAY) / sizeof(BOAT_CONTROL_MENU_ARRAY[0]);
 
 const char *SETTINGS_MENU_ARRAY[] = {
     "MAIN MENU",
     "OTA enable",
     "OTA disable"};
+const size_t SETTINGS_MENU_ARRAY_SIZE = sizeof(SETTINGS_MENU_ARRAY) / sizeof(SETTINGS_MENU_ARRAY[0]);
 
 const char MENU_POINTER = '<';
 

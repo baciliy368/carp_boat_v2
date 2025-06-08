@@ -9,4 +9,4 @@ extern Adafruit_SSD1306 display;
 
 // Инициализация OLED
 void prepareOled();
-void addMenuRowsByArray(const char **rows);
+void addMenuRowsByArray(const char **rows, size_t count);

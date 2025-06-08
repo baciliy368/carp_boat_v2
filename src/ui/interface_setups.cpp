@@ -51,19 +51,25 @@ void maxSpeedPrint()
     display.print(currentBoatInfo.maxSpeed);
 }
 
+void boatVoltagePrint()
+{
+    display.print(currentBoatInfo.battery_voltage);
+    display.print(' V');
+}
+
 void mainMenuPrint()
 {
-    addMenuRowsByArray(MAIN_MENU_ARRAY);
+    addMenuRowsByArray(MAIN_MENU_ARRAY, MAIN_MENU_ARRAY_SIZE);
 }
 
 void boatMenuPrint()
 {
-    addMenuRowsByArray(BOAT_CONTROL_MENU_ARRAY);
+    addMenuRowsByArray(BOAT_CONTROL_MENU_ARRAY, BOAT_CONTROL_MENU_ARRAY_SIZE);
 }
 
 void settingsMenuPrint()
 {
-    addMenuRowsByArray(SETTINGS_MENU_ARRAY);
+    addMenuRowsByArray(SETTINGS_MENU_ARRAY, MAIN_MENU_ARRAY_SIZE);
 }
 
 void boatTelemetryMenuPrint()
@@ -73,11 +79,13 @@ void boatTelemetryMenuPrint()
     latitudePrint();
     cursor += MENU_ITEMS_ON_SCREEN_DISTANCE;
     display.setCursor(0, cursor);
-    cursor += MENU_ITEMS_ON_SCREEN_DISTANCE;
     longitudePrint();
     cursor += MENU_ITEMS_ON_SCREEN_DISTANCE;
     display.setCursor(0, cursor);
     maxSpeedPrint();
+    cursor += MENU_ITEMS_ON_SCREEN_DISTANCE;
+    display.setCursor(0, cursor);
+    boatVoltagePrint();
 }
 
 void printActualMenu()
@@ -130,6 +138,10 @@ void boatMenuController()
     case MAIN_MENU:
         ACTIVE_MENU_VIEW = MAIN_MENU_INDEX;
         break;
+    case GET_INFO:
+        requestBoatInfo();
+        ACTIVE_MENU_VIEW = MAIN_MENU_INDEX;
+        break;
     case TELEMENTRY:
         ACTIVE_MENU_VIEW = BOAT_TELEMETRY_MENU_INDEX;
         break;
@@ -170,10 +182,15 @@ void selectMenuItem()
     case SETTINGS_MENU_INDEX:
         settingsMenuController();
         break;
+
+    case BOAT_TELEMETRY_MENU_INDEX:
+        ACTIVE_MENU_VIEW = BOAT_MENU_INDEX;
+        break;
     }
 }
 
-size_t sizeOfArray(const char **rows) {
+size_t sizeOfArray(const char **rows)
+{
     return sizeof(rows) / sizeof(rows[0]);
 }
 
@@ -182,10 +199,10 @@ size_t getNuberOfCurrentMenuPositions()
     switch (ACTIVE_MENU_VIEW)
     {
     case MAIN_MENU_INDEX:
-        return sizeOfArray(MAIN_MENU_ARRAY);
+        return MAIN_MENU_ARRAY_SIZE;
     case BOAT_MENU_INDEX:
-        return sizeOfArray(BOAT_CONTROL_MENU_ARRAY);
+        return BOAT_CONTROL_MENU_ARRAY_SIZE;
     case SETTINGS_MENU_INDEX:
-        return sizeOfArray(SETTINGS_MENU_ARRAY);
+        return SETTINGS_MENU_ARRAY_SIZE;
     }
 }

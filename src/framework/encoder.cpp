@@ -1,7 +1,7 @@
 #include "encoder.h"
 #include "ui/interface_setups.h"
 
-EncButton eb(ENC_A_PIN, ENC_B_PIN, ENC_BUTTON_PIN, INPUT_PULLUP, INPUT_PULLUP);
+EncButton eb(ENC_B_PIN, ENC_A_PIN, ENC_BUTTON_PIN, INPUT_PULLUP, INPUT_PULLUP);
 
 void callbackEncoder()
 {

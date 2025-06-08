@@ -2,9 +2,16 @@
 #define __VARIABLES_H__
 
 #include <stdint.h>
+#include <stddef.h>
 
 #define NRF_CE_PIN 4
 #define NRF_CSN_PIN 17
+
+#define CE_PIN 4
+#define CSN_PIN 17
+#define SCK_PIN 18
+#define MISO_PIN 19
+#define MOSI_PIN 13
 
 #define JOYSTICK_X_PIN 26
 #define JOYSTICK_Y_PIN 27
@@ -55,15 +62,19 @@ struct MessageData
 extern MessageData currentBoatInfo;
 
 extern const char *MAIN_MENU_ARRAY[];
+extern const size_t MAIN_MENU_ARRAY_SIZE;
 #define BOAT_CONTROL 0
 #define SETTINGS 1
 
 extern const char *BOAT_CONTROL_MENU_ARRAY[];
+extern const size_t BOAT_CONTROL_MENU_ARRAY_SIZE;
 #define MAIN_MENU 0
 #define TELEMENTRY 1
 #define SETTINGS_BOAT_CONTROL 2
+#define GET_INFO 3
 
 extern const char *SETTINGS_MENU_ARRAY[];
+extern const size_t SETTINGS_MENU_ARRAY_SIZE;
 #define OTA_ENABLE 1
 #define OTA_DISABLE 2
 

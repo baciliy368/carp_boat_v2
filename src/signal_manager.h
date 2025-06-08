@@ -5,6 +5,7 @@
 
 // Сохранение состояния лодки
 void saveIncomingBoatInfo(MessageData incomingMessageData);
+void requestBoatInfo();
 
 // Отправка готового сообщения
 void sendMessageData(MessageData messageData);

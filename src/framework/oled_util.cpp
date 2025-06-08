@@ -10,11 +10,10 @@ void prepareOled()
     display.setTextColor(WHITE);
 }
 
-void addMenuRowsByArray(const char **rows)
+void addMenuRowsByArray(const char **rows, size_t count)
 {
-    size_t count = sizeof(rows) / sizeof(rows[0]);
     int cursor = SCREEN_HEIGHT - SCREEN_BOTTOM_COLOR_HEIGHT;
-    for (int i{ACTIVE_MENU_POSITION / 4 * 4}; i <= count; i++)
+    for (int i{ACTIVE_MENU_POSITION / 4 * 4}; i < count; i++)
     {
         if (ACTIVE_MENU_POSITION == i)
         {

@@ -71,6 +71,7 @@ void slowReleaseTrume()
 void requestBoatInfo()
 {
     simpleOperation(5);
+    currentBoatInfo = waitResponse();
 }
 
 /*
